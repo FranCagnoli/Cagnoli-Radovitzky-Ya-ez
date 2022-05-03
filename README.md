@@ -22,6 +22,9 @@ El readme usarlo como indice con links a los demas reademes. El
 
 A aulas subis una caratula con nombres, numeros de etudiante, link al repo y grupo.
 
+Para las nuevas User Story que te tiren:
+relevar. especificar (hacer el CCC), escribir los casos de prueba. Programar. Testing automatico. Refactoriar. Test de integracion.
+
 ## Proceso de Ingeniería en el contexto de Kanban
 
 Vamos a utilizar Behaviour-Driven Development (BDD) para desarrollar y documentar los cambios que le vamos haciendo al obigatorio y mejoras a aplicar. Definiremos cuales son estos cambios que le debemos hacer al proyecto y serán nuestras user stories.
