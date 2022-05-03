@@ -6,6 +6,22 @@ definir proceso de ingeniería: voy a usar BDD y el output de eso van a ser user
 
 HS-P miden esfuerzo, HS tiempo. En esta primera entrega no estimar.
 
+## notas de clase hablando con Alvaro:
+
+weekly (standup diario) hacerlo semanal
+
+primer entrega registrar con esfuerzo (horas/persona) y despues para las demas estimar con story points. Usas de referencia de horas/persona para calcular los story points.
+
+Para la deuda tecnica: primero escribis todos los bugs que vas encontrando en un word/pdf con descripcion de cada bug si es necesario. Después los pasas a issues en github. Un error de sintaxis es un Issue, no un bug.
+
+En el informe tiene que estar la DAKI que se hace en la retro, la retro hay que grabarla, las daily/weekly graben 2 o 3 como muestra.
+
+La review del final de todo tambien se graba.
+
+El readme usarlo como indice con links a los demas reademes. El
+
+A aulas subis una caratula con nombres, numeros de etudiante, link al repo y grupo.
+
 ## Proceso de Ingeniería en el contexto de Kanban
 
 Vamos a utilizar Behaviour-Driven Development (BDD) para desarrollar y documentar los cambios que le vamos haciendo al obigatorio y mejoras a aplicar. Definiremos cuales son estos cambios que le debemos hacer al proyecto y serán nuestras user stories.
