@@ -72,4 +72,6 @@ Como decidimos correr el proyecto en Visual studio, simplemente consto de abrirl
 
 ## Stand-up meeting
 
+Decidimos, en tener solamente una  stand-up meeting por semana, debido a que es un proyecto con una carga de 5 horas por integrante por semana, y al tener todos otras responsabilidades y distinos horarios nos seria dificl de poder realizarlas de manera diaria o inclusive dia de por medio.
+
 ## Documentacion
