@@ -2,11 +2,6 @@
 
 Repositorio destinado al obligatorio de ingeniería de software agil 2
 
-definir proceso de ingeniería: voy a usar BDD y el output de eso van a ser user stories. Básicamente definir todas las etapas de la pipeline: RD, TCI, COD, Prueba, refactor. Decir que vas a hacer en cada etapa. Cualquier cosa ver clase martes 25 abril.
-
-HS-P miden esfuerzo, HS tiempo. En esta primera entrega no estimar.
-
-
 ## Proceso de Ingeniería en el contexto de Kanban
 
 Vamos a utilizar Behaviour-Driven Development (BDD) para desarrollar y documentar los cambios que le vamos haciendo al obigatorio y mejoras a aplicar. Definiremos cuales son estos cambios que le debemos hacer al proyecto y serán nuestras user stories.
