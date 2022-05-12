@@ -35,30 +35,88 @@ import { ReservationReportComponent } from './feature-modules/reservation-report
 import { ReservationReportModule } from './feature-modules/reservation-report/reservation-report.module';
 import { ImportingComponent } from './feature-modules/importing/importing.component';
 import { ImportingModule } from './feature-modules/importing/importing.module';
-// tslint:disable-next-line:max-line-length
-import { AdminSpecificRoutes, ImporterRoutes, RegionRoutes, ReservationRoutes, ResortRoutes, ReviewRoutes, SessionRoutes, TouristPointRoutes } from './core/routes';
+import {
+  AdminSpecificRoutes,
+  ImporterRoutes,
+  RegionRoutes,
+  ReservationRoutes,
+  ResortRoutes,
+  ReviewRoutes,
+  SessionRoutes,
+  TouristPointRoutes,
+} from './core/routes';
 
 const routes: Routes = [
-  { path: '', redirectTo: RegionRoutes.REGIONS, pathMatch: 'full'},
-  { path: RegionRoutes.DEFAULT, redirectTo: RegionRoutes.REGIONS, pathMatch: 'full'},
-  { path: RegionRoutes.REGIONS, component: ExploreRegionsComponent},
-  { path: ReservationRoutes.CHECK_RESERVATION, component: CheckReservationComponent},
-  { path: TouristPointRoutes.TOURIST_POINTS, component: ExploreTouristPointsComponent},
-  { path: ResortRoutes.RESORTS, component: ExploreResortsComponent},
-  { path: ResortRoutes.RESORT_DETAIL, component: ExploreOneResortComponent},
-  { path: ReviewRoutes.REVIEW, component: SubmitReviewComponent},
-  { path: SessionRoutes.LOGIN, component: LoginComponent},
-  { path: AdminSpecificRoutes.ADMIN_LIST, component: AdminListComponent, canActivate: [AuthGuard]},
-  { path: `${AdminSpecificRoutes.ADMIN_DETAIL}/:administratorId`, component: AdminDetailComponent, canActivate: [AuthGuard]},
-  { path: AdminSpecificRoutes.ADMIN_CREATE, component: AdminCreateComponent, canActivate: [AuthGuard]},
-  { path: TouristPointRoutes.TOURIST_POINT_CREATE, component: CreateTouristPointComponent, canActivate: [AuthGuard]},
-  { path: ResortRoutes.UPDATE_AVAILABILITY, component: UpdateResortAvailabilityComponent, canActivate: [AuthGuard]},
-  { path: ReservationRoutes.UPDATE_STATE, component: UpdateReservationStateComponent, canActivate: [AuthGuard]},
-  { path: ReservationRoutes.REPORT, component: ReservationReportComponent, canActivate: [AuthGuard]},
-  { path: ImporterRoutes.IMPORT, component: ImportingComponent, canActivate: [AuthGuard]},
-  { path: ResortRoutes.RESORT_LIST, component: ResortListComponent, canActivate: [AuthGuard]},
-  { path: ResortRoutes.RESORT_CREATE, component: ResortCreateComponent, canActivate: [AuthGuard]},
-  { path: '**', redirectTo: RegionRoutes.REGIONS, pathMatch: 'full'}
+  { path: '', redirectTo: RegionRoutes.REGIONS, pathMatch: 'full' },
+  {
+    path: RegionRoutes.DEFAULT,
+    redirectTo: RegionRoutes.REGIONS,
+    pathMatch: 'full',
+  },
+  { path: RegionRoutes.REGIONS, component: ExploreRegionsComponent },
+  {
+    path: ReservationRoutes.CHECK_RESERVATION,
+    component: CheckReservationComponent,
+  },
+  {
+    path: TouristPointRoutes.TOURIST_POINTS,
+    component: ExploreTouristPointsComponent,
+  },
+  { path: ResortRoutes.RESORTS, component: ExploreResortsComponent },
+  { path: ResortRoutes.RESORT_DETAIL, component: ExploreOneResortComponent },
+  { path: ReviewRoutes.REVIEW, component: SubmitReviewComponent },
+  { path: SessionRoutes.LOGIN, component: LoginComponent },
+  {
+    path: AdminSpecificRoutes.ADMIN_LIST,
+    component: AdminListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: `${AdminSpecificRoutes.ADMIN_DETAIL}/:administratorId`,
+    component: AdminDetailComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: AdminSpecificRoutes.ADMIN_CREATE,
+    component: AdminCreateComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: TouristPointRoutes.TOURIST_POINT_CREATE,
+    component: CreateTouristPointComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: ResortRoutes.UPDATE_AVAILABILITY,
+    component: UpdateResortAvailabilityComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: ReservationRoutes.UPDATE_STATE,
+    component: UpdateReservationStateComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: ReservationRoutes.REPORT,
+    component: ReservationReportComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: ImporterRoutes.IMPORT,
+    component: ImportingComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: ResortRoutes.RESORT_LIST,
+    component: ResortListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: ResortRoutes.RESORT_CREATE,
+    component: ResortCreateComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: '**', redirectTo: RegionRoutes.REGIONS, pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -80,7 +138,8 @@ const routes: Routes = [
     ImportingModule,
     ResortListModule,
     ResortCreateModule,
-    RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    RouterModule.forRoot(routes),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
