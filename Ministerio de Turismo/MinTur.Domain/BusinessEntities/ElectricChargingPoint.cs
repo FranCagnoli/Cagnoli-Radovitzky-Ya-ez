@@ -44,5 +44,19 @@ namespace MinTur.Domain.BusinessEntities
             if (String.IsNullOrEmpty(Description) || Description.Length > 60)
                 throw new InvalidRequestDataException("Invalid or missing Description. Only up to 60 characters allowed");
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj.GetType() != GetType())
+                return false;
+
+            var electricChargingPoint = obj as ElectricChargingPoint;
+            return Id == electricChargingPoint.Id;
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id);
+        }
+
     }
 }
