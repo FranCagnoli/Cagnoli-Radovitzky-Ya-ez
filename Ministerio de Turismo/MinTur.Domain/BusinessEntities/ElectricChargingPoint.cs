@@ -11,6 +11,7 @@ namespace MinTur.Domain.BusinessEntities
         public string Name { get; set; }
         public string Address { get; set; }
         public Region Region { get; set; }
+        public int RegionId { get; set; }
         public string Description { get; set; }
 
         public virtual void ValidOrFail()
@@ -35,7 +36,7 @@ namespace MinTur.Domain.BusinessEntities
 
         private void ValidateRegion()
         {
-            if (Region == null || String.IsNullOrEmpty(Region.Name))
+            if (RegionId <= 0)
                 throw new InvalidRequestDataException("Invalid or missing Region");
         }
 

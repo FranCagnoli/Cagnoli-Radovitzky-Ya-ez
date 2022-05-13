@@ -14,10 +14,7 @@ namespace MinTur.Domain.Test.BusinessEntities
             ElectricChargingPoint ElectricChargingPoint = new ElectricChargingPoint()
             {
                 Address = "Una direccion",
-                Region = new Region()
-                {
-                    Name = "Region"
-                },
+                RegionId = 1,
                 Description = "Una Descripcion",
             };
             ElectricChargingPoint.ValidOrFail();
@@ -31,10 +28,7 @@ namespace MinTur.Domain.Test.BusinessEntities
             {
                 Name = "Puerto de carga con nombre largo",
                 Address = "Una direccion",
-                Region = new Region()
-                {
-                    Name = "Region"
-                },
+                RegionId = 1,
                 Description = "Una Descripcion",
             };
             ElectricChargingPoint.ValidOrFail();
@@ -48,10 +42,7 @@ namespace MinTur.Domain.Test.BusinessEntities
             ElectricChargingPoint ElectricChargingPoint = new ElectricChargingPoint()
             {
                 Name = "Puerto de carga 1",
-                Region = new Region()
-                {
-                    Name = "Region"
-                },
+                RegionId = 1,
                 Description = "Una Descripcion",
             };
             ElectricChargingPoint.ValidOrFail();
@@ -65,10 +56,7 @@ namespace MinTur.Domain.Test.BusinessEntities
             {
                 Name = "Puerto de carga 1",
                 Address = "Una direccion muy larga para la validacion",
-                Region = new Region()
-                {
-                    Name = "Region"
-                },
+                RegionId = 1,
                 Description = "Una Descripcion",
             };
             ElectricChargingPoint.ValidOrFail();
@@ -83,6 +71,8 @@ namespace MinTur.Domain.Test.BusinessEntities
                 Name = "Puerto de carga 1",
                 Address = "Una direccion",
                 Description = "Una Descripcion",
+                RegionId = -1,
+
             };
             ElectricChargingPoint.ValidOrFail();
         }
@@ -95,10 +85,7 @@ namespace MinTur.Domain.Test.BusinessEntities
             {
                 Name = "Puerto de carga 1",
                 Address = "Una direccion",
-                Region = new Region()
-                {
-                    Name = "Region"
-                },
+                RegionId = 1,
             };
             ElectricChargingPoint.ValidOrFail();
         }
@@ -111,10 +98,7 @@ namespace MinTur.Domain.Test.BusinessEntities
             {
                 Name = "Puerto de carga 1",
                 Address = "Una direccion",
-                Region = new Region()
-                {
-                    Name = "Region"
-                },
+                RegionId = 1,
                 Description = "Una Descripcion muy larga para el campo, Una Descripcion muy larga para el campo.",
 
             };
@@ -129,10 +113,7 @@ namespace MinTur.Domain.Test.BusinessEntities
             {
                 Name = "Puerto de carga 1",
                 Address = "Una direccion",
-                Region = new Region()
-                {
-                    Name = "Region"
-                },
+                RegionId = 1,
                 Description = "Una Descripcion",
             };
             ElectricChargingPoint.ValidOrFail();
