@@ -113,7 +113,7 @@ namespace MinTur.DataAccess.Test.Repositories
         [TestMethod]
         public void StoreElectricChargingPointReturnsAsExpected()
         {
-            Region region = new Region() { Name = "Region" };
+            Region region = new Region() { Id=1,Name = "Region" };
             _context.Regions.Add(region);
             _context.SaveChanges();
             _context.Entry(region).State = EntityState.Detached;
@@ -122,11 +122,7 @@ namespace MinTur.DataAccess.Test.Repositories
             ElectricChargingPoint electricChargingPoint = new ElectricChargingPoint()
             {
                 Name = "Puerto2",
-                Region = new Region()
-                {
-                    Id = 1,
-                    Name = "Region"
-                },
+                RegionId = 1,
                 Description = "Desc",
                 Address = "Direcc"
             };
