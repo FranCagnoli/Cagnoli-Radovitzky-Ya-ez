@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/core/http-services/session/session.service';
 import { Router } from '@angular/router';
 import { isEmailValid } from 'src/app/shared/helpers/validators';
-import { RegionRoutes } from 'src/app/core/routes';
+import { AdminSpecificRoutes} from 'src/app/core/routes';
 
 @Component({
   selector: 'app-login',
@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
   }
 
   private navigateToDashboard(): void{
-    this.router.navigate([RegionRoutes.REGIONS], {replaceUrl: true});
+    this.router.navigate([AdminSpecificRoutes.ADMIN_LIST], {replaceUrl: true});
   }
 
   private saveUserInfo(userInfo: string): void{
