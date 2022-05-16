@@ -32,6 +32,9 @@ namespace MinTur.BusinessLogic.Test.ResourceManagers
             Reservation retrievedReservation = CreateReservation();
             Resort retrievedResort = CreateResortWithSpecificId(retrievedReservation.Resort.Id);
             Review createdReview = CreateReview(reviewId, retrievedReservation);
+            Accommodation acc = new Accommodation();
+            acc.CheckOut = DateTime.Today;
+            retrievedReservation.Accommodation = acc;
 
             _reviewMock.SetupAllProperties();
 
