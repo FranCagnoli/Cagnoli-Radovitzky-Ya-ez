@@ -51,6 +51,7 @@ namespace MinTur.WebApi.Controllers
 
 
         [HttpDelete("{id:int}")]
+        [ServiceFilter(typeof(AdministratorAuthorizationFilter))]
         public IActionResult DeleteElectricChargingPoint(int id)
         {
             _ElectricChargingPointManager.DeleteElectricChargingPointById(id);
