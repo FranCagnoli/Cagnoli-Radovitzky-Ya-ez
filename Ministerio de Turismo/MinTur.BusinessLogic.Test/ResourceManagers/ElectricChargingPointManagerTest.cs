@@ -110,6 +110,21 @@ namespace MinTur.BusinessLogic.Test.ResourceManagers
             Assert.AreEqual(expectedElectricChargingPoint, retrievedElectricChargingPoint);
         }
 
+        [TestMethod]
+        public void DeleteElectricChargingPointReturnsAsExpected()
+        {
+            int ElectricChargingPointId = 6;
+            ElectricChargingPoint ElectricChargingPointToBeDeleted = CreateElectricChargingPointWithSpecificId(ElectricChargingPointId);
+
+            _repositoryFacadeMock.Setup(r => r.GetElectricChargingPointById(ElectricChargingPointId)).Returns(ElectricChargingPointToBeDeleted);
+            _repositoryFacadeMock.Setup(r => r.DeleteElectricChargingPoint(ElectricChargingPointToBeDeleted));
+            ElectricChargingPointManager ElectricChargingPointManager = new ElectricChargingPointManager(_repositoryFacadeMock.Object);
+
+            ElectricChargingPointManager.DeleteElectricChargingPointById(ElectricChargingPointId);
+            _repositoryFacadeMock.VerifyAll();
+            Assert.IsTrue(ElectricChargingPointId.Equals(ElectricChargingPointToBeDeleted.Id));
+        }
+
         #region Helpers
 
         public ElectricChargingPoint CreateElectricChargingPointWithSpecificId(int id)
@@ -127,6 +142,8 @@ namespace MinTur.BusinessLogic.Test.ResourceManagers
                 Description = "Una Descripcion",
             };
         }
+
+
 
         #endregion
     }
