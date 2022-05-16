@@ -92,6 +92,33 @@ namespace MinTur.DataAccess.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("MinTur.Domain.BusinessEntities.ElectricChargingPoint", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RegionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RegionId");
+
+                    b.ToTable("ElectricChargingPoints");
+                });
+
             modelBuilder.Entity("MinTur.Domain.BusinessEntities.GuestGroup", b =>
                 {
                     b.Property<int>("Id")
@@ -362,6 +389,13 @@ namespace MinTur.DataAccess.Migrations
                         .HasForeignKey("AdministratorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MinTur.Domain.BusinessEntities.ElectricChargingPoint", b =>
+                {
+                    b.HasOne("MinTur.Domain.BusinessEntities.Region", "Region")
+                        .WithMany()
+                        .HasForeignKey("RegionId");
                 });
 
             modelBuilder.Entity("MinTur.Domain.BusinessEntities.GuestGroup", b =>
