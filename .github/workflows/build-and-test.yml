@@ -10,7 +10,6 @@ on:
 
 env:
   DOTNET_VERSION: '3.1.101' # The .NET SDK version to use
-  RUN_MODE: 'Release'
 
 jobs:
   build-and-test:
@@ -33,7 +32,7 @@ jobs:
       working-directory: "Ministerio de Turismo/"
       
     - name: Build
-      run: dotnet build --configuration $RUN_MODE --no-restore
+      run: dotnet build --configuration Release --no-restore
       working-directory: "Ministerio de Turismo/"
 
     - name: Test
