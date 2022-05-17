@@ -43,6 +43,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinTur.XMLImporter.Test", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinTur.ImporterInterface", "MinTur.ImporterInterface\MinTur.ImporterInterface.csproj", "{28CA7422-461F-47A0-A504-859832AB6C91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinTur.SpecFlowTesting", "MinTur.SpecFlowTesting\MinTur.SpecFlowTesting.csproj", "{4F768E28-6795-475A-A748-7DAFC7172C9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -293,6 +295,18 @@ Global
 		{28CA7422-461F-47A0-A504-859832AB6C91}.Release|x64.Build.0 = Release|Any CPU
 		{28CA7422-461F-47A0-A504-859832AB6C91}.Release|x86.ActiveCfg = Release|Any CPU
 		{28CA7422-461F-47A0-A504-859832AB6C91}.Release|x86.Build.0 = Release|Any CPU
+		{4F768E28-6795-475A-A748-7DAFC7172C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F768E28-6795-475A-A748-7DAFC7172C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F768E28-6795-475A-A748-7DAFC7172C9A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4F768E28-6795-475A-A748-7DAFC7172C9A}.Debug|x64.Build.0 = Debug|Any CPU
+		{4F768E28-6795-475A-A748-7DAFC7172C9A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4F768E28-6795-475A-A748-7DAFC7172C9A}.Debug|x86.Build.0 = Debug|Any CPU
+		{4F768E28-6795-475A-A748-7DAFC7172C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F768E28-6795-475A-A748-7DAFC7172C9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F768E28-6795-475A-A748-7DAFC7172C9A}.Release|x64.ActiveCfg = Release|Any CPU
+		{4F768E28-6795-475A-A748-7DAFC7172C9A}.Release|x64.Build.0 = Release|Any CPU
+		{4F768E28-6795-475A-A748-7DAFC7172C9A}.Release|x86.ActiveCfg = Release|Any CPU
+		{4F768E28-6795-475A-A748-7DAFC7172C9A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
