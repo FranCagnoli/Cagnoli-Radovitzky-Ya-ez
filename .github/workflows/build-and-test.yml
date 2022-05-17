@@ -30,9 +30,13 @@ jobs:
 
     - name: Install dependencies
       run: dotnet restore
+      working-directory: "Ministerio de Turismo/"
       
     - name: Build
       run: dotnet build --configuration $RUN_MODE --no-restore
-    
+      working-directory: "Ministerio de Turismo/"
+
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+      working-directory: "Ministerio de Turismo/"
+
