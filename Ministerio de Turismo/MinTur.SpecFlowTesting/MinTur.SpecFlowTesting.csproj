@@ -21,4 +21,9 @@
     <Folder Include="Support\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MinTur.Models\MinTur.Models.csproj" />
+    <ProjectReference Include="..\MinTur.WebApi\MinTur.WebApi.csproj" />
+  </ItemGroup>
+
 </Project>
