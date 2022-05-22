@@ -61,7 +61,7 @@ namespace MinTur.SpecFlowTesting.StepDefinitions
             this.ecp.Address = address;
         }
 
-        [Given(@"un ID de Region (.*) \(existente\)")]
+        [Given(@"un ID de Region (.*) existente")]
         public void GivenUnIDDeRegionExistente(int regionId)
         {
             this.ecp.RegionId = regionId;
@@ -71,6 +71,12 @@ namespace MinTur.SpecFlowTesting.StepDefinitions
             this.ecpManager = new ElectricChargingPointManager(this.repository);
         }
 
+        [Given(@"un ID de Region (.*) inexistente")]
+        public void GivenUnIDDeRegionInexistente(int regionId)
+        {
+            this.ecp.RegionId = regionId;
+        }
+        
         [Given(@"una descripcion ""([^""]*)""")]
         public void GivenUnaDescripcion(string description)
         {
@@ -81,11 +87,19 @@ namespace MinTur.SpecFlowTesting.StepDefinitions
         [When(@"creo un punto de carga con esos valores")]
         public void WhenCreoUnPuntoDeCargaConEsosValores()
         {
-            ElectricChargingPointController controller = new ElectricChargingPointController(this.ecpManager);
-            IActionResult responseResult = controller.CreateElectricChargingPoint(this.ecp);
-            CreatedResult response = (CreatedResult)responseResult;
-            context.Set(response.StatusCode, "ResponseCode");
-            context.Set(response.Value, "ResponseValue");
+            try
+            {
+                ElectricChargingPointController controller = new ElectricChargingPointController(this.ecpManager);
+                IActionResult responseResult = controller.CreateElectricChargingPoint(this.ecp);
+                CreatedResult response = (CreatedResult)responseResult;
+                context.Set(response.StatusCode, "ResponseCode");
+                context.Set(response.Value, "ResponseValue");
+            }
+            catch (Exception ex)
+            {
+                context.Set(ex.Message, "Exception");
+            }
+
         }
 
         [Then(@"responde con un codigo de exito (.*)")]
@@ -104,6 +118,14 @@ namespace MinTur.SpecFlowTesting.StepDefinitions
             Assert.AreEqual(this.ecp.Address, response.Address);
             Assert.AreEqual(this.ecp.Description, response.Description);
         }
+
+        [Then(@"arroja una excepcion indicando ""([^""]*)""")]
+        public void ThenArrojaUnaExcepcionIndicando(string exception)
+        {
+            string exMessage = context.Get<string>("Exception");
+            Assert.AreEqual(exception, exMessage);
+        }
+
 
     }
 }
