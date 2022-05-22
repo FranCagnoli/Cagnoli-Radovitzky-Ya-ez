@@ -7,7 +7,7 @@
 Scenario: Se trata de crear un punto de carga con exito
 	Given un nombre "Punto de carga 1"
 	And una direccion "Direccion del punto de carga 1"
-	And un ID de Region 2 (existente)
+	And un ID de Region 2 existente
 	And una descripcion "Descripcion del putno de carga 1"
 	When creo un punto de carga con esos valores
 	Then responde con un codigo de exito 201
