@@ -20,6 +20,7 @@ namespace MinTur.DataAccess.Facades
         private AuthenticationTokenRepository _authenticationTokenRepository;
         private AdministratorRepository _administratorRepository;
         private ReviewRepository _reviewRepository;
+        private ElectricChargingPointRepository _electricChargingPointRepository;
 
         public RepositoryFacade(DbContext context)
         {
@@ -32,6 +33,7 @@ namespace MinTur.DataAccess.Facades
             _authenticationTokenRepository = new AuthenticationTokenRepository(_context);
             _administratorRepository = new AdministratorRepository(_context);
             _reviewRepository = new ReviewRepository(_context);
+            _electricChargingPointRepository = new ElectricChargingPointRepository(_context);
         }
 
         public List<Category> GetAllCategories()
@@ -156,6 +158,26 @@ namespace MinTur.DataAccess.Facades
         public Review GetReviewById(int reviewId)
         {
             return _reviewRepository.GetReviewById(reviewId);
+        }
+
+        public List<ElectricChargingPoint> GetAllElectricChargingPoints()
+        {
+            return _electricChargingPointRepository.GetAllElectricChargingPoints();
+        }
+
+        public ElectricChargingPoint GetElectricChargingPointById(int id)
+        {
+            return _electricChargingPointRepository.GetElectricChargingPointById(id);
+        }
+
+        public int StoreElectricChargingPoint(ElectricChargingPoint newElectricChargingPoint)
+        {
+            return _electricChargingPointRepository.StoreElectricChargingPoint(newElectricChargingPoint);
+        }
+
+        public void DeleteElectricChargingPoint(ElectricChargingPoint electricChargingPoint)
+        {
+            _electricChargingPointRepository.DeleteElectricChargingPoint(electricChargingPoint);
         }
     }
 }

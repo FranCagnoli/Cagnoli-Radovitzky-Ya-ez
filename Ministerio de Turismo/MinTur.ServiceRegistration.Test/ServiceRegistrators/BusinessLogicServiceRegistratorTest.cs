@@ -234,6 +234,28 @@ namespace MinTur.ServiceRegistration.Test.ServiceRegistrators
             Assert.IsTrue(typeof(IImporterManager).IsAssignableFrom(service.GetType()));
         }
 
+
+        [TestMethod]
+        public void ElectricChargingPointManagerIsNotRegisteredBeforeCallingRegisterServiceMethod()
+        {
+            IServiceProvider serviceProvider = _serviceCollection.BuildServiceProvider();
+            object service = serviceProvider.GetService(typeof(IElectricChargingPointManager));
+
+            Assert.IsTrue(service == null);
+        }
+
+        [TestMethod]
+        public void ElectricChargingPointManagerIsRegisteredAfterCallingRegisterServiceMethod()
+        {
+            RegisterImporterManagerDependencies();
+            _businessLogicRegistrator.RegistrateServices(_serviceCollection);
+            IServiceProvider serviceProvider = _serviceCollection.BuildServiceProvider();
+            object service = serviceProvider.GetService(typeof(IElectricChargingPointManager));
+
+            Assert.IsTrue(service != null);
+            Assert.IsTrue(typeof(IElectricChargingPointManager).IsAssignableFrom(service.GetType()));
+        }
+
         private void RegisterAuthenticationManagerDependencies()
         {
             _serviceCollection.AddScoped<IRepositoryFacade, RepositoryFacadeDummy>();

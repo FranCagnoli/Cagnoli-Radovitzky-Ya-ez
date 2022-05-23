@@ -149,5 +149,25 @@ namespace MinTur.ServiceRegistration.Test.Dummies
         {
             throw new NotImplementedException();
         }
+
+        public List<ElectricChargingPoint> GetAllElectricChargingPoints()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ElectricChargingPoint GetElectricChargingPointById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int StoreElectricChargingPoint(ElectricChargingPoint newElectricChargingPoint)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteElectricChargingPoint(ElectricChargingPoint electricChargingPoint)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
