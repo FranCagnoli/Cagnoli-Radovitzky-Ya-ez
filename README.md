@@ -61,12 +61,15 @@ Para hacer el setup del front-end se necesita abrir una consola, ir al directori
 
 Como decidimos correr el proyecto en Visual studio, simplemente consto de abrirlo y selecionar como Start up project a la api y darle run.
 
-### Base de datos
-
-## Analisis del codigo
 
 ## Stand-up meeting
 
 Decidimos, en tener solamente una  stand-up meeting por semana, debido a que es un proyecto con una carga de 5 horas por integrante por semana, y al tener todos otras responsabilidades y distinos horarios nos seria dificl de poder realizarlas de manera diaria o inclusive dia de por medio.
 
-## Documentacion
+## Links segundo informe
+
+Links a grabaciones
+<br>
+[retrospectiva](https://youtu.be/2xH2zSNAtPY) <br>
+[review](https://youtu.be/2xH2zSNAtPY)
+
