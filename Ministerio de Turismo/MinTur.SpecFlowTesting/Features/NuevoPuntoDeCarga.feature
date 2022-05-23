@@ -10,7 +10,7 @@ Scenario: Se trata de crear un punto de carga con exito
 	And un ID de Region 2 existente
 	And una descripcion "Descripcion del putno de carga 1"
 	When creo un punto de carga con esos valores
-	Then responde con un codigo de exito 201
+	Then responde con un codigo 201
 	And responde con el punto de carga creado.
 	
 @creacionNombreInvalida

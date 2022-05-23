@@ -174,5 +174,10 @@ namespace MinTur.DataAccess.Facades
         {
             return _electricChargingPointRepository.StoreElectricChargingPoint(newElectricChargingPoint);
         }
+
+        public void DeleteElectricChargingPoint(ElectricChargingPoint electricChargingPoint)
+        {
+            _electricChargingPointRepository.DeleteElectricChargingPoint(electricChargingPoint);
+        }
     }
 }

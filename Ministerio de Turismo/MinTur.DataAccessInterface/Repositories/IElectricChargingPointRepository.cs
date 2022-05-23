@@ -8,5 +8,6 @@ namespace MinTur.DataAccessInterface.Repositories
         List<ElectricChargingPoint> GetAllElectricChargingPoints();
         ElectricChargingPoint GetElectricChargingPointById(int id);
         int StoreElectricChargingPoint(ElectricChargingPoint newElectricChargingPoint);
+        void DeleteElectricChargingPoint(ElectricChargingPoint electricChargingPoint);
     }
 }

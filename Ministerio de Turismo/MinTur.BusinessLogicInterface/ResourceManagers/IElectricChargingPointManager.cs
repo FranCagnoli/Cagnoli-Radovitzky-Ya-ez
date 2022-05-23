@@ -8,5 +8,6 @@ namespace MinTur.BusinessLogicInterface.ResourceManagers
         List<ElectricChargingPoint> GetAllElectricChargingPoints();
         ElectricChargingPoint RegisterElectricChargingPoint(ElectricChargingPoint newElectricChargingPoint);
         ElectricChargingPoint GetElectricChargingPointById(int electricChargingPointId);
+        void DeleteElectricChargingPointById(int electricChargingPointId);
     }
 }
