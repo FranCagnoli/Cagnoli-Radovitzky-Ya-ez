@@ -129,7 +129,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("una direccion \"Direccion del punto de carga 1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
- testRunner.And("un ID de Region 2 (existente)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("un ID de Region 2 existente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
  testRunner.And("una descripcion \"Descripcion del putno de carga 1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
