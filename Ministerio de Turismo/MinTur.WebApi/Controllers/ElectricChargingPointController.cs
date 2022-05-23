@@ -7,6 +7,7 @@ using MinTur.Models.In;
 using MinTur.Models.Out;
 using System.Collections.Generic;
 using System.Linq;
+using MinTur.WebApi.Filters;
 
 namespace MinTur.WebApi.Controllers
 {
@@ -40,6 +41,7 @@ namespace MinTur.WebApi.Controllers
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(AdministratorAuthorizationFilter))]
         public IActionResult CreateElectricChargingPoint([FromBody] ElectricChargingPointIntentModel ElectricChargingPointIntentModel)
         {
             ElectricChargingPoint createdElectricChargingPoint = _ElectricChargingPointManager.RegisterElectricChargingPoint(ElectricChargingPointIntentModel.ToEntity());
