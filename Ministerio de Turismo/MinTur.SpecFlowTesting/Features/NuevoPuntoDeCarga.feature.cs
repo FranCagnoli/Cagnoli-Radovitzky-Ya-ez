@@ -138,7 +138,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("creo un punto de carga con esos valores", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
- testRunner.Then("responde con un codigo de exito 201", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("responde con un codigo 201", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 14
  testRunner.And("responde con el punto de carga creado.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

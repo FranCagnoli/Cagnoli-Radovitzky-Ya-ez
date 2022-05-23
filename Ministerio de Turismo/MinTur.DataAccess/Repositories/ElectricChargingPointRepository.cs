@@ -58,7 +58,7 @@ namespace MinTur.DataAccess.Repositories
         public void DeleteElectricChargingPoint(ElectricChargingPoint electricChargingPoint)
         {
             if (!ElectricChargingPointExists(electricChargingPoint.Id))
-                throw new ResourceNotFoundException("Could not find specified administrator");
+                throw new ResourceNotFoundException("Could not find specified electric charging point");
 
             ElectricChargingPoint retrievedElectricChargingPoint = Context.Set<ElectricChargingPoint>().Where(a => a.Id == electricChargingPoint.Id).FirstOrDefault();
             DeleteElectricChargingPointFromDb(electricChargingPoint);
