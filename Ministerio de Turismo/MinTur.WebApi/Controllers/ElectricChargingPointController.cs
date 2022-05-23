@@ -5,6 +5,7 @@ using MinTur.BusinessLogicInterface.ResourceManagers;
 using MinTur.Domain.BusinessEntities;
 using MinTur.Models.In;
 using MinTur.Models.Out;
+using MinTur.WebApi.Filters;
 using System.Collections.Generic;
 using System.Linq;
 using MinTur.WebApi.Filters;
@@ -47,6 +48,15 @@ namespace MinTur.WebApi.Controllers
             ElectricChargingPoint createdElectricChargingPoint = _ElectricChargingPointManager.RegisterElectricChargingPoint(ElectricChargingPointIntentModel.ToEntity());
             ElectricChargingPointBasicInfoModel confirmation = new ElectricChargingPointBasicInfoModel(createdElectricChargingPoint);
             return Created("api/electricChargingPoints/" + createdElectricChargingPoint.Id, confirmation);
+        }
+
+
+        [HttpDelete("{id:int}")]
+        [ServiceFilter(typeof(AdministratorAuthorizationFilter))]
+        public IActionResult DeleteElectricChargingPoint(int id)
+        {
+            _ElectricChargingPointManager.DeleteElectricChargingPointById(id);
+            return Ok(new { ResultMessage = $"Electric Charging Point {id} succesfully deleted" });
         }
 
     }

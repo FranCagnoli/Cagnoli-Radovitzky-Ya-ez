@@ -119,6 +119,24 @@ namespace MinTur.WebApi.Test.Controllers
             Assert.AreEqual(new ElectricChargingPointBasicInfoModel(expectedElectricChargingPoint), okResult.Value);
         }
 
+        [TestMethod]
+        public void DeleteElectricChargingPointTest()
+        {
+            ElectricChargingPoint ElectricChargingPointToDelete = CreateElectricChargingPoint();
+            int ElectricChargingPointIdToDelete = ElectricChargingPointToDelete.Id;
+            string succesfulDeletitionMessage = new { ResultMessage = $"Electric Charging Point {ElectricChargingPointIdToDelete} succesfully deleted" }.ToString();
+
+            _ElectricChargingPointManagerMock.Setup(r => r.DeleteElectricChargingPointById(ElectricChargingPointIdToDelete));
+            ElectricChargingPointController ElectricChargingPointController = new ElectricChargingPointController(_ElectricChargingPointManagerMock.Object);
+
+            IActionResult result = ElectricChargingPointController.DeleteElectricChargingPoint(ElectricChargingPointIdToDelete);
+            OkObjectResult okResult = result as OkObjectResult;
+            string retrievedResultMessage = okResult.Value.ToString();
+
+            _ElectricChargingPointManagerMock.VerifyAll();
+            Assert.AreEqual(succesfulDeletitionMessage, retrievedResultMessage);
+        }
+
         #region Helpers
         public ElectricChargingPointIntentModel CreateElectricChargingPointIntentModel()
         {

@@ -54,5 +54,26 @@ namespace MinTur.DataAccess.Repositories
             Context.Set<ElectricChargingPoint>().Add(newElectricChargingPoint);
             Context.SaveChanges();
         }
+
+        public void DeleteElectricChargingPoint(ElectricChargingPoint electricChargingPoint)
+        {
+            if (!ElectricChargingPointExists(electricChargingPoint.Id))
+                throw new ResourceNotFoundException("Could not find specified electric charging point");
+
+            ElectricChargingPoint retrievedElectricChargingPoint = Context.Set<ElectricChargingPoint>().Where(a => a.Id == electricChargingPoint.Id).FirstOrDefault();
+            DeleteElectricChargingPointFromDb(electricChargingPoint);
+        }
+
+        private bool ElectricChargingPointExists(int id)
+        {
+            ElectricChargingPoint retrievedElectricChargingPoint = Context.Set<ElectricChargingPoint>().AsNoTracking().Where(ecp => ecp.Id == id).FirstOrDefault();
+            return retrievedElectricChargingPoint != null;
+        }
+
+        private void DeleteElectricChargingPointFromDb(ElectricChargingPoint electricChargingPoint)
+        {
+            Context.Set<ElectricChargingPoint>().Remove(electricChargingPoint);
+            Context.SaveChanges();
+        }
     }
 }

@@ -33,5 +33,10 @@ namespace MinTur.BusinessLogic.ResourceManagers
             return createdElectricChargingPoint;
         }
 
+        public void DeleteElectricChargingPointById(int electricChargingPointId)
+        {
+            ElectricChargingPoint electricChargingPointToBeDeleted = _repositoryFacade.GetElectricChargingPointById(electricChargingPointId);
+            _repositoryFacade.DeleteElectricChargingPoint(electricChargingPointToBeDeleted);
+        }
     }
 }

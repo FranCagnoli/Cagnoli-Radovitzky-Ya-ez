@@ -151,6 +151,36 @@ namespace MinTur.DataAccess.Test.Repositories
             _repository.StoreElectricChargingPoint(electricChargingPoint);
         }
 
+        [TestMethod]
+        public void DeleteElectricChargingPointReturnsAsExpected()
+        {
+            ElectricChargingPoint ElectricChargingPointToBeDeleted = new ElectricChargingPoint()
+            {
+                Name = "Puerto2",
+                RegionId = 1,
+                Description = "Desc",
+                Address = "Direcc"
+            };
+            _context.Set<ElectricChargingPoint>().Add(ElectricChargingPointToBeDeleted);
+            _context.SaveChanges();
+
+            _repository.DeleteElectricChargingPoint(ElectricChargingPointToBeDeleted);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ResourceNotFoundException))]
+        public void DeleteElectricChargingPointDoesntExist()
+        {
+            _repository.DeleteElectricChargingPoint(new ElectricChargingPoint() {
+                Id = -1,
+                Name = "Puerto2",
+                RegionId = 1,
+                Description = "Desc",
+                Address = "Direcc"
+            });
+        }
+
+
         #endregion
     }
 }

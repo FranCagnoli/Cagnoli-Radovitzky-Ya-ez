@@ -103,8 +103,8 @@ namespace MinTur.SpecFlowTesting.StepDefinitions
 
         }
 
-        [Then(@"responde con un codigo de exito (.*)")]
-        public void ThenRespondeConUnCodigoDeExito(int code)
+        [Then(@"responde con un codigo (.*)")]
+        public void ThenRespondeConUnCodigo(int code)
         {
             Assert.AreEqual(code, (int)context.Get<HttpStatusCode>("ResponseCode"));
 
