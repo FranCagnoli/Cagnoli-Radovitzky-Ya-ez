@@ -69,6 +69,7 @@ Decidimos, en tener solamente una  stand-up meeting por semana, debido a que es 
 ## Links segundo informe
 
 Links a grabaciones
-[retrospectiva](https://youtu.be/2xH2zSNAtPY)
+<br>
+[retrospectiva](https://youtu.be/2xH2zSNAtPY) <br>
 [review](https://youtu.be/2xH2zSNAtPY)
 
