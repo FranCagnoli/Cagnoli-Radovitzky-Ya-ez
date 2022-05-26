@@ -41,7 +41,10 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
     "codelyzer": "^6.0.0",
+    "cucumber": "^6.0.7",
     "eslint": "^7.32.0",
     "eslint-config-node": "^4.1.0",
     "eslint-config-prettier": "^8.5.0",
@@ -65,9 +68,11 @@
     "postcss-loader": "latest",
     "prettier": "^2.6.2",
     "protractor": "~7.0.0",
+    "protractor-cucumber-framework": "^8.4.2",
     "tailwindcss": "latest",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.2"
+    "typescript": "~4.0.2",
+    "webdriver-manager": "^12.1.8"
   }
 }
