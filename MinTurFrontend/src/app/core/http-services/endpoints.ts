@@ -51,5 +51,5 @@ export enum ImporterEndpoints {
 }
 
 export enum ChargingPointEndpoints {
-  CREATE_CHARGING_POINTS = 'chargingpoints'
+  CREATE_CHARGING_POINTS = 'electricChargingPoints'
 }

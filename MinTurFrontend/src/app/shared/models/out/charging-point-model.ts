@@ -1,6 +1,6 @@
 export interface ChargingPointModel {
   name?: string;
-  description?: string;
+  address?: string;
   direction?: string;
   regionId?: number;
 }
