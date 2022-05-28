@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:prod": "NODE_ENV=production ng build --prod"
+    "build:prod": "NODE_ENV=production ng build --prod",
+    "webdriver:start": "webdriver-manager start"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +37,8 @@
     "@angular-eslint/template-parser": "1.2.0",
     "@angular/cli": "~10.2.0",
     "@angular/compiler-cli": "~10.2.0",
+    "@types/chai": "^4.3.1",
+    "@types/cucumber": "^7.0.0",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
@@ -54,6 +57,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prefer-arrow": "1.2.2",
     "eslint-plugin-prettier": "^4.0.0",
+    "generator-cucumber-step-definitions": "^1.0.0",
+    "gherkin": "^9.0.0",
     "jasmine": "^4.1.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
@@ -73,6 +78,7 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.2",
-    "webdriver-manager": "^12.1.8"
+    "webdriver-manager": "^12.1.8",
+    "yo": "^4.3.0"
   }
 }

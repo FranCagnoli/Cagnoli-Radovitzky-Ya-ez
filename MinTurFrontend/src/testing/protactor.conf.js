@@ -1,7 +1,7 @@
 exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub', // This is targetting your local running instance of the selenium webdriver
 
-  specs: ['./specs/*.feature'],
+  specs: ['./*/specs/*.feature'],
 
   capabilities: {
     browserName: 'chrome' // You can use any browser you want.
@@ -12,6 +12,6 @@ exports.config = {
   frameworkPath: require.resolve('protractor-cucumber-framework'), // Here it is
 
   cucumberOpts: {
-    require: './steps/*.js' // This is where we'll be writing our actual tests
+    require: './*/steps/*.js' // This is where we'll be writing our actual tests
   }
 };
