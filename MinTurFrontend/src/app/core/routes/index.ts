@@ -1,4 +1,3 @@
-
 export enum ReservationRoutes {
   CHECK_RESERVATION = 'checkReservation',
   REPORT = 'admin/reservation-report',
@@ -37,6 +36,10 @@ export enum AdminSpecificRoutes {
   ADMIN_CREATE = 'admin/administrator-create'
 }
 
-export enum ImporterRoutes{
+export enum ImporterRoutes {
   IMPORT = 'admin/import'
+}
+
+export enum ChargingPoints {
+  CHARGING_POINT_CREATE = 'admin/chargin-point-create'
 }

@@ -44,7 +44,12 @@ import {
   ReviewRoutes,
   SessionRoutes,
   TouristPointRoutes,
+  ChargingPoints
 } from './core/routes';
+import { CreateCharginPointComponent } from './feature-modules/create-charging-point/create-charging-point.component';
+import { CreateCharginPointModule } from './feature-modules/create-charging-point/create-charging-point.module';
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: RegionRoutes.REGIONS, pathMatch: 'full'},
@@ -60,6 +65,7 @@ const routes: Routes = [
   { path: `${AdminSpecificRoutes.ADMIN_DETAIL}/:administratorId`, component: AdminDetailComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
   { path: AdminSpecificRoutes.ADMIN_CREATE, component: AdminCreateComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
   { path: TouristPointRoutes.TOURIST_POINT_CREATE, component: CreateTouristPointComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
+  { path: ChargingPoints.CHARGING_POINT_CREATE, component: CreateCharginPointComponent },
   { path: ResortRoutes.UPDATE_AVAILABILITY, component: UpdateResortAvailabilityComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
   { path: ReservationRoutes.UPDATE_STATE, component: UpdateReservationStateComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
   { path: ReservationRoutes.REPORT, component: ReservationReportComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
@@ -89,6 +95,7 @@ const routes: Routes = [
     ResortListModule,
     ResortCreateModule,
     RouterModule.forRoot(routes),
+    CreateCharginPointModule,
   ],
   exports: [RouterModule],
 })

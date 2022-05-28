@@ -46,3 +46,4 @@ And una direccion "Direccion del punto de carga 1"
 And un ID de Region 2 (existente)
 And una descripcion ""
 When apreto el boton "crear"
+Then aparece un mensaje de error "Invalid or missing Description. Only up to 60 characters allowed"

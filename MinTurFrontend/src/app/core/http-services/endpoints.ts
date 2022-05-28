@@ -1,4 +1,3 @@
-
 export enum ReservationEndpoints {
   GET_RESERVATIONS = 'reservations',
   CREATE_RESERVATION = 'reservations',
@@ -9,12 +8,12 @@ export enum ReservationEndpoints {
 
 export enum CategoryEndpoints {
   GET_CATEGORIES = 'categories',
-  GET_ONE_CATEGORY = 'categories/%s',
+  GET_ONE_CATEGORY = 'categories/%s'
 }
 
 export enum RegionEndpoints {
   GET_REGIONS = 'regions',
-  GET_ONE_REGION = 'regions/%s',
+  GET_ONE_REGION = 'regions/%s'
 }
 
 export enum ResortEndpoints {
@@ -22,7 +21,7 @@ export enum ResortEndpoints {
   GET_ONE_RESORT = 'resorts/%s',
   CREATE_RESORT = 'resorts',
   DELETE_ONE_RESORT = 'resorts/%s',
-  UPDATE_RESORT_AVAILABILITY = 'resorts/%s',
+  UPDATE_RESORT_AVAILABILITY = 'resorts/%s'
 }
 
 export enum ReviewEndpoints {
@@ -43,10 +42,14 @@ export enum AdminEndpoints {
   GET_ONE_ADMINISTRATOR = 'administrators/%s',
   DELETE_ONE_ADMINISTRATOR = 'administrators/%s',
   CREATE_ADMINISTRATOR = 'administrators',
-  UPDATE_ONE_ADMINISTRATOR = 'administrators/%s',
+  UPDATE_ONE_ADMINISTRATOR = 'administrators/%s'
 }
 
-export enum ImporterEndpoints{
+export enum ImporterEndpoints {
   GET_IMPORTERS = 'importers',
   IMPORT_RESOURCES = 'importers/importResources'
+}
+
+export enum ChargingPointEndpoints {
+  CREATE_CHARGING_POINTS = 'chargingpoints'
 }
