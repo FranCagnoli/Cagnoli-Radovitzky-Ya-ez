@@ -1,12 +1,12 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/core/http-services/category/category.service';
+import { ChargingPointService } from 'src/app/core/http-services/charging-points/charging-point.service';
 import { RegionService } from 'src/app/core/http-services/region/region.service';
 import { TouristPointService } from 'src/app/core/http-services/tourist-point/tourist-point.service';
 import { CategoryBasicInfoModel } from 'src/app/shared/models/out/category-basic-info-model';
 import { ChargingPointModel } from 'src/app/shared/models/out/charging-point-model';
 import { RegionBasicInfoModel } from 'src/app/shared/models/out/region-basic-info-model';
-import { TouristPointIntentModel } from 'src/app/shared/models/out/tourist-point-intent-model';
 
 @Component({
   selector: 'app-create-charging-point',
@@ -16,10 +16,10 @@ import { TouristPointIntentModel } from 'src/app/shared/models/out/tourist-point
 export class CreateCharginPointComponent implements OnInit {
   public explanationTitle: string;
   public explanationDescription: string;
-  public justCreatedTouristPoint = false;
+  public justCreatedChargingPoint = false;
   public name: string;
   public description: string;
-  public direction: string;
+  public address: string;
   public image: string;
   public regionId: number;
   public categoriesIds: number[] = [];
@@ -30,8 +30,9 @@ export class CreateCharginPointComponent implements OnInit {
   public regions: RegionBasicInfoModel[] = [];
   private chargingPointModel: ChargingPointModel;
 
+
   constructor(
-    private touristPointService: TouristPointService,
+    private chargingPointService: ChargingPointService,
     private categoryService: CategoryService,
     private regionService: RegionService
   ) {}
@@ -62,8 +63,8 @@ export class CreateCharginPointComponent implements OnInit {
     this.description = description;
   }
 
-  public setDirection(direction: string): void {
-    this.direction = direction;
+  public setAddress(address: string): void {
+    this.address = address;
   }
 
   public selectRegion(regionId: number): void {
@@ -89,19 +90,14 @@ export class CreateCharginPointComponent implements OnInit {
       this.chargingPointModel = {
         name: this.name,
         description: this.description,
-        direction: this.direction,
+        address: this.address,
         regionId: this.regionId
       };
-      this.touristPointService
-        .createTourisPoint(this.touristPointIntentModel)
-        .subscribe(
-          (touristPointBasicInfoModel) => {
-            this.justCreatedTouristPoint = true;
-          },
-          (error) => this.showError(error)
-        );
+      this.chargingPointService.createChargingPoint(this.chargingPointModel).subscribe(
+        response => {this.justCreatedChargingPoint=true},
+        error=> {this.showError(error)})
     } else {
-      this.justCreatedTouristPoint = false;
+      this.justCreatedChargingPoint = false;
     }
   }
 
@@ -110,7 +106,7 @@ export class CreateCharginPointComponent implements OnInit {
     this.errorMessages = [];
     this.validateName();
     this.validateDescription();
-    this.validateDirection();
+    this.validateAddress();
     this.validateRegion();
   }
 
@@ -132,8 +128,8 @@ export class CreateCharginPointComponent implements OnInit {
     }
   }
 
-  private validateDirection(): void {
-    if (!this.direction?.trim()) {
+  private validateAddress(): void {
+    if (!this.address?.trim()) {
       this.displayError = true;
       this.errorMessages.push(
         'Invalid or missing Address. Only up to 30 characters allowed'
