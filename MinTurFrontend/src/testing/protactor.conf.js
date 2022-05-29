@@ -12,6 +12,10 @@ exports.config = {
   frameworkPath: require.resolve('protractor-cucumber-framework'), // Here it is
 
   cucumberOpts: {
-    require: './*/steps/*.js' // This is where we'll be writing our actual tests
+    require: ['./*/steps/*.js','./generic/generic.steps.js'] // This is where we'll be writing our actual tests
+  },
+
+  onPrepare: async () => {
+    await browser.waitForAngularEnabled(false);
   }
 };

@@ -41,5 +41,5 @@ export enum ImporterRoutes {
 }
 
 export enum ChargingPoints {
-  CHARGING_POINT_CREATE = 'admin/chargin-point-create'
+  CHARGING_POINT_CREATE = 'admin/charging-point-create'
 }

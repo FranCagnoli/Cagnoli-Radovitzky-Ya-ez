@@ -1,5 +1,4 @@
 'use strict';
-
 const { Given, When, Then } = require('@cucumber/cucumber');
 
 // Use the external Chai As Promised to deal with resolving promises in
@@ -9,37 +8,38 @@ const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 const expect = chai.expect;
 
-Given( /^un nombre "([^"]*)" $/, function (text, callback) {
-  element(by.id('name')).sendKeys(text).then(function () {
-    callback();
-});
+
+Given('estoy en la pagina de agregar punto de carga para auto electrico', async () => {
+  await browser.get('http://localhost:4200/admin/charging-point-create')
 });
 
-Given( /^una direccion "([^"]*)" $/, function (text, callback) {
-  element(by.id('direction')).sendKeys(text).then(function () {
-    callback();
-});
-});
-
-Given( /^un ID de Region (existente) "([^"]*)" $/, function (text, callback) {
-  element(by.id('region-id')).sendKeys(text).then(function () {
-    callback();
-});
+Given('un nombre {string}', async (string) =>{
+  await browser
+    .get('http://localhost:4200/admin/charging-point-create')
+    .then(async () => {
+      await element(by.id('name')).sendKeys(string);
+    });
 });
 
-Given( /^una descripcion "([^"]*)" $/, function (text, callback) {
-  element(by.id('description')).sendKeys(text).then(function () {
-    callback();
+Given('una direccion {string}', async (string) => {
+  await element(by.id('address')).sendKeys(string);
 });
+
+Given('una descripcion {string}', async (string) => {
+  await element(by.id('description')).sendKeys(string);
+});
+
+Given('un ID de Region existente {string}', async (string) => {
+  if(!string) return
+  const EC = protractor.ExpectedConditions;
+  const elm = element(by.className('mat-option'));
+  element(by.className('mat-select')).click();
+  await browser.wait(EC.presenceOf(elm), 10000);
+  await element(by.className('mat-option')).click();
+});
+
+When('apreto el boton {string}', async (string) => {
+  await element(by.buttonText(string)).click();
 });
 
 
-When(/^apreto el boton "([^"]*)"$/, function (text,callback) {
-  element(by.buttonText(text)).click();
-  callback();
-});
-
-Then(/responde con un mensaje de "([^"]*)" $/, function (text, callback) {
-  element(by.id('alert')).click();
-  expect(browser.getTitle()).to.eventually.equal(text).and.notify(callback);
-});
