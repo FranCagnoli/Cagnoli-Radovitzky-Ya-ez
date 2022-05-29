@@ -10,7 +10,7 @@
       <p class="text-indigo font-semibold self-center">Nombre:</p>
       <mat-form-field class="ml-3 self-start w-2/5">
         <mat-label>ej: Cabo Polonio</mat-label>
-        <input matInput (input)="setName($event.target.value)">
+        <input matInput id='name' (input)="setName($event.target.value)">
       </mat-form-field>
     </div>
     <div class="flex flex-row ml-2">
@@ -18,21 +18,23 @@
       <mat-form-field class="ml-3 self-start w-4/5">
         <mat-label>ej: Se ubica a más de 270 km de la capital. Este pequeño balneario cuenta con dos playas: la Norte y
           la Sur...</mat-label>
-        <input type="text" matInput (input)="setDescription($event.target.value)">
+        <input type="text" matInput id="description" (input)="setDescription($event.target.value)">
       </mat-form-field>
     </div>
     <div class="flex flex-row ml-2">
       <p class="text-indigo font-semibold self-center">Direción:</p>
       <mat-form-field class="ml-3 self-start w-2/5">
         <mat-label>ej: Santader esq Rivera...</mat-label>
-        <input type="text" matInput (input)="setDirection($event.target.value)" class="form-select mt-1 block w-full" />
+        <input type="text" id="address" matInput (input)="setDirection($event.target.value)"
+          class="form-select mt-1 block w-full" />
       </mat-form-field>
     </div>
     <div class="flex flex-row ml-2">
       <p class="text-indigo font-semibold self-center">Region:</p>
       <div class="flex flex-col">
         <div *ngFor="let region of regions" class="justify-around">
-          <mat-checkbox (click)="selectRegion(region.id)" class="sm:ml-2 mr-2 self-center sm:self-auto" color="primary">
+          <mat-checkbox (click)="selectRegion(region.id)" id="region" class="sm:ml-2 mr-2 self-center sm:self-auto"
+            color="primary">
             {{region.name}}
           </mat-checkbox>
         </div>
