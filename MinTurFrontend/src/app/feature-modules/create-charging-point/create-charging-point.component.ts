@@ -13,27 +13,22 @@ import { RegionBasicInfoModel } from 'src/app/shared/models/out/region-basic-inf
   templateUrl: './create-charging-point.component.html',
   styleUrls: []
 })
-export class CreateCharginPointComponent implements OnInit {
+export class CreateChargingPointComponent implements OnInit {
   public explanationTitle: string;
   public explanationDescription: string;
   public justCreatedChargingPoint = false;
   public name: string;
   public description: string;
   public address: string;
-  public image: string;
   public regionId: number;
-  public categoriesIds: number[] = [];
   public displayError: boolean;
   public errorMessages: string[] = [];
-  public imageName: string;
-  public categories: CategoryBasicInfoModel[] = [];
   public regions: RegionBasicInfoModel[] = [];
   private chargingPointModel: ChargingPointModel;
 
 
   constructor(
     private chargingPointService: ChargingPointService,
-    private categoryService: CategoryService,
     private regionService: RegionService
   ) {}
 
@@ -71,19 +66,9 @@ export class CreateCharginPointComponent implements OnInit {
     this.regionId = regionId;
   }
 
-  public loadFile(file: File): void {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = (): void => {
-      this.image =
-        typeof reader.result === 'string'
-          ? reader.result.replace(/^data:.+;base64,/, '')
-          : undefined;
-    };
-    this.imageName = file?.name;
-  }
 
-  public createTouristPoint(): void {
+
+  public createChargingPoint(): void {
     this.validateInputs();
 
     if (!this.displayError) {
