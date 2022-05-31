@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class ChargingPointListComponent implements OnInit {
   public chargingPoints: ChargingPointBasicInfoModel[];
   public ownEmail: string;
-
+  public justDeletedChargingPoint = false;
   constructor(
     private chargingPointService: ChargingPointService,
     private router: Router
@@ -40,7 +40,13 @@ export class ChargingPointListComponent implements OnInit {
 
   public deleteChargingPoint(chargingPointId: number): void {
     this.chargingPointService.delete(chargingPointId).subscribe(
-      (response) => this.getChargingPoints(),
+      (response) => {
+        this.justDeletedChargingPoint = true;
+        setTimeout(() => {
+          this.justDeletedChargingPoint = false;
+        }, 5000);
+        this.getChargingPoints();
+      },
       (error: HttpErrorResponse) => this.showError(error)
     );
   }

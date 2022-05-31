@@ -4,11 +4,11 @@
       <div class="flex flex-col flex-1 w-full">
         <main class="h-full pb-16">
           <div class="container grid px-6 mx-auto">
-            <div class="flex flex-row justify-between">
+            <div class="flex flex-row justify-between" id="charging-point-list">
               <h4
                 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
               >
-                Lista de putntos de carga
+                Lista de puntos de carga
               </h4>
 
               <button
@@ -19,6 +19,15 @@
               </button>
             </div>
 
+            <div *ngIf="justDeletedChargingPoint" class="flex flex-row justify-around mb-8 mt-8">
+              <div class="flex flex-col w-2/3 bg-gray-300 p-3 rounded-2xl border-2 border-purple">
+                <span class="h-3 w-3 flex">
+                  <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-400"></span>
+                </span>
+                <p class="text-indigo font-bold text-center mb-6" id="alert">Electric Charging Point 1 succesfully deleted</p>
+              </div>
+            </div>
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
               <div class="w-full overflow-x-auto">
                 <table class="w-full whitespace-no-wrap">
@@ -52,7 +61,7 @@
                       <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
                           <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                            class="delete-point-icon flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Delete"
                             (click)="deleteChargingPoint(point.id)"
                             id="{{point.id}}"
