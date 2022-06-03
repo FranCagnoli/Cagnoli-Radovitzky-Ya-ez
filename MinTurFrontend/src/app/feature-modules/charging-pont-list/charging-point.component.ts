@@ -14,6 +14,8 @@ export class ChargingPointListComponent implements OnInit {
   public chargingPoints: ChargingPointBasicInfoModel[];
   public ownEmail: string;
   public justDeletedChargingPoint = false;
+  public displayError = false;
+  public error: string;
   constructor(
     private chargingPointService: ChargingPointService,
     private router: Router
@@ -62,6 +64,7 @@ export class ChargingPointListComponent implements OnInit {
   }
 
   private showError(error: HttpErrorResponse): void {
-    console.log(error);
+    this.displayError = true;
+    this.error = 'Could not find specified electric charging point';
   }
 }

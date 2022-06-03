@@ -119,11 +119,13 @@ const routes: Routes = [
   {
     path: ChargingPoints.CHARGING_POINT_CREATE,
     component: CreateChargingPointComponent,
+    canActivate: [AuthGuard],
     data: { isAdminAllowed: true }
   },
   {
     path: ChargingPoints.CHARGING_POINTS,
     component: ChargingPointListComponent,
+    canActivate: [AuthGuard],
     data: { isAdminAllowed: true }
   },
   {
