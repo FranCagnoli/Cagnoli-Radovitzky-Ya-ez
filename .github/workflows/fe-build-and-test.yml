@@ -26,7 +26,7 @@ jobs:
       
     - name: Install dependencies
       working-directory: "MinTurFrontend/"
-      run: npm ci
+      run: npm i --force
 
     - name: Install Angular CLI
       run: npm install -g @angular/cli
