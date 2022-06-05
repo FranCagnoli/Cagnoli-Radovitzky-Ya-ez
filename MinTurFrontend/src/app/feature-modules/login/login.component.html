@@ -9,14 +9,14 @@
       <p class="text-indigo font-semibold self-center">Email:</p>
       <mat-form-field class="ml-3 self-start w-2/5" >
         <mat-label>ej: pedro@gmail.com</mat-label>
-        <input matInput (input)="setEmail($event.target.value)">
+        <input matInput (input)="setEmail($event.target.value)" id="email">
       </mat-form-field>
     </div>
     <div class="flex flex-row ml-2">
       <p class="text-indigo font-semibold self-center">Contraseña:</p>
       <mat-form-field class="ml-3 self-start w-2/5" >
         <mat-label>ej: password123</mat-label>
-        <input type="password" matInput (input)="setPassword($event.target.value)">
+        <input type="password" matInput (input)="setPassword($event.target.value)" id="password">
       </mat-form-field>
     </div>
     <div class="mt-1 flex flex-col justify-around">
