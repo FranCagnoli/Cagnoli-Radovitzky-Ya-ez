@@ -2,9 +2,9 @@ name: fe build and test
 on:
   push:
   pull_request:
-    branches: [ main, develop ]
+    branches: [main, develop]
     paths:
-    - 'MinTurFrontend/**'
+      - 'MinTurFrontend/**'
 
 jobs:
   ci:
@@ -23,14 +23,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install Dependencies
-        working-directory: "MinTurFrontend/"
+        working-directory: 'MinTurFrontend/'
         run: npm i --legacy-peer-deps
-          
 
       - name: Build
-        working-directory: "MinTurFrontend/"
-        run: npm run build:prod
+        working-directory: 'MinTurFrontend/'
+        run: npm run build
 
       - name: Test
-        working-directory: "MinTurFrontend/"
+        working-directory: 'MinTurFrontend/'
         run: npm run test -- --prod
