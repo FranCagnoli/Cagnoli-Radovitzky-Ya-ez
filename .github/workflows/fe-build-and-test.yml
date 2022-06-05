@@ -10,9 +10,6 @@ on:
 jobs:
   build-and-test:
     runs-on: windows-latest
-    defaults:
-       run:
-        working-directory: "MinTurFrontend/"
 
     steps:
     - name: Configure long paths
@@ -28,10 +25,12 @@ jobs:
         node-version: '16.x'
       
     - name: Install dependencies
+      working-directory: "MinTurFrontend/"
       run: npm ci
 
     - name: Install Angular CLI
       run: npm install -g @angular/cli
 
     - name: Build
+      working-directory: "MinTurFrontend/"
       run: npm run build --prod
