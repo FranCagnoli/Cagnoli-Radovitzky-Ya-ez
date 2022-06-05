@@ -12,7 +12,7 @@ And voy a la pagina de listado de punto de carga
 When se apreta el boton eliminar de uno de los puntos
 Then responde con un mensaje de "Electric Charging Point 1 succesfully deleted"
 
-Scenario: se trata de eliminar un punto de carga no existente
+Scenario: Se trata de ingresar  a la lista de puntos de cargas sin ser admin
 Given un usuario no loogeado de admin
 And voy a la pagina de listado de punto de carga
 Then no se visualiza la pagina.
