@@ -24,7 +24,7 @@ jobs:
 
       - name: Install Dependencies
         working-directory: "MinTurFrontend/"
-        run: npm i
+        run: npm i --legacy-peer-deps
           
 
       - name: Build
