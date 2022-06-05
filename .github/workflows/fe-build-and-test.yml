@@ -12,7 +12,7 @@ jobs:
     runs-on: windows-latest
     defaults:
        run:
-         working-directory: MinTurFrontend/
+         working-directory: MinTurFrontend\
 
     steps:
     - name: Configure long paths
