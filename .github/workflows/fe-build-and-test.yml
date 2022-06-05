@@ -37,14 +37,18 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install Dependencies
+        working-directory: "MinTurFrontend/"
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
           npm ci
+          
 
       - name: Build
+        working-directory: "MinTurFrontend/"
         run: |
           npm run build:prod
 
       - name: Test
+        working-directory: "MinTurFrontend/"
         run: |
           npm run test -- --prod
