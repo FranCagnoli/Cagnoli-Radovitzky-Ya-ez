@@ -19,7 +19,7 @@ import { LoginComponent } from './feature-modules/login/login.component';
 import { CheckReservationComponent } from './feature-modules/check-reservation/check-reservation.component';
 import { CheckReservationModule } from './feature-modules/check-reservation/check-reservation.module';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ExploreOneResortComponent } from './feature-modules/explore-one-resort/explore-one-resort.component';
 import { ExploreOneResortModule } from './feature-modules/explore-one-resort/explore-one-resort.module';
 import { ExploreRegionsComponent } from './feature-modules/explore-regions/explore-regions.component';
@@ -37,42 +37,134 @@ import { ImportingComponent } from './feature-modules/importing/importing.compon
 import { ImportingModule } from './feature-modules/importing/importing.module';
 import { CreateChargingPointComponent } from './feature-modules/create-charging-point/create-charging-point.component';
 import { CreateChargingPointModule } from './feature-modules/create-charging-point/create-charging-point.module';
+import { ChargingPointListModule } from './feature-modules/charging-pont-list/charging-point-list.module';
+import { ChargingPointListComponent } from './feature-modules/charging-pont-list/charging-point.component';
 import {
   AdminSpecificRoutes,
+  ChargingPoints,
   ImporterRoutes,
   RegionRoutes,
   ReservationRoutes,
   ResortRoutes,
   ReviewRoutes,
   SessionRoutes,
-  TouristPointRoutes,
-  ChargingPoints
+  TouristPointRoutes
 } from './core/routes';
 
-
-
 const routes: Routes = [
-  { path: '', redirectTo: RegionRoutes.REGIONS, pathMatch: 'full'},
-  { path: RegionRoutes.DEFAULT, redirectTo: RegionRoutes.REGIONS, pathMatch: 'full', canActivate: [AuthGuard],data:{isAdminAllowed:false}},
-  { path: RegionRoutes.REGIONS, component: ExploreRegionsComponent, canActivate: [AuthGuard], data:{isAdminAllowed:false}},
-  { path: ReservationRoutes.CHECK_RESERVATION, component: CheckReservationComponent, canActivate: [AuthGuard],data:{isAdminAllowed:false}},
-  { path: TouristPointRoutes.TOURIST_POINTS, component: ExploreTouristPointsComponent,canActivate: [AuthGuard],data:{isAdminAllowed:false}},
-  { path: ResortRoutes.RESORTS, component: ExploreResortsComponent, canActivate: [AuthGuard],data:{isAdminAllowed:false}},
-  { path: ResortRoutes.RESORT_DETAIL, component: ExploreOneResortComponent},
-  { path: ReviewRoutes.REVIEW, component: SubmitReviewComponent, canActivate: [AuthGuard],data:{isAdminAllowed:false}},
-  { path: SessionRoutes.LOGIN, component: LoginComponent},
-  { path: AdminSpecificRoutes.ADMIN_LIST, component: AdminListComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
-  { path: `${AdminSpecificRoutes.ADMIN_DETAIL}/:administratorId`, component: AdminDetailComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
-  { path: AdminSpecificRoutes.ADMIN_CREATE, component: AdminCreateComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
-  { path: TouristPointRoutes.TOURIST_POINT_CREATE, component: CreateTouristPointComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
-  { path: ChargingPoints.CHARGING_POINT_CREATE, component: CreateChargingPointComponent },
-  { path: ResortRoutes.UPDATE_AVAILABILITY, component: UpdateResortAvailabilityComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
-  { path: ReservationRoutes.UPDATE_STATE, component: UpdateReservationStateComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
-  { path: ReservationRoutes.REPORT, component: ReservationReportComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
-  { path: ImporterRoutes.IMPORT, component: ImportingComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
-  { path: ResortRoutes.RESORT_LIST, component: ResortListComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
-  { path: ResortRoutes.RESORT_CREATE, component: ResortCreateComponent, canActivate: [AuthGuard],data:{isAdminAllowed:true}},
-  { path: '**', redirectTo: RegionRoutes.REGIONS, pathMatch: 'full'}
+  { path: '', redirectTo: RegionRoutes.REGIONS, pathMatch: 'full' },
+  {
+    path: RegionRoutes.DEFAULT,
+    redirectTo: RegionRoutes.REGIONS,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: false }
+  },
+  {
+    path: RegionRoutes.REGIONS,
+    component: ExploreRegionsComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: false }
+  },
+  {
+    path: ReservationRoutes.CHECK_RESERVATION,
+    component: CheckReservationComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: false }
+  },
+  {
+    path: TouristPointRoutes.TOURIST_POINTS,
+    component: ExploreTouristPointsComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: false }
+  },
+  {
+    path: ResortRoutes.RESORTS,
+    component: ExploreResortsComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: false }
+  },
+  { path: ResortRoutes.RESORT_DETAIL, component: ExploreOneResortComponent },
+  {
+    path: ReviewRoutes.REVIEW,
+    component: SubmitReviewComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: false }
+  },
+  { path: SessionRoutes.LOGIN, component: LoginComponent },
+  {
+    path: AdminSpecificRoutes.ADMIN_LIST,
+    component: AdminListComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: true }
+  },
+  {
+    path: `${AdminSpecificRoutes.ADMIN_DETAIL}/:administratorId`,
+    component: AdminDetailComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: true }
+  },
+  {
+    path: AdminSpecificRoutes.ADMIN_CREATE,
+    component: AdminCreateComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: true }
+  },
+  {
+    path: TouristPointRoutes.TOURIST_POINT_CREATE,
+    component: CreateTouristPointComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: true }
+  },
+  {
+    path: ChargingPoints.CHARGING_POINT_CREATE,
+    component: CreateChargingPointComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: true }
+  },
+  {
+    path: ChargingPoints.CHARGING_POINTS,
+    component: ChargingPointListComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: true }
+  },
+  {
+    path: ResortRoutes.UPDATE_AVAILABILITY,
+    component: UpdateResortAvailabilityComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: true }
+  },
+  {
+    path: ReservationRoutes.UPDATE_STATE,
+    component: UpdateReservationStateComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: true }
+  },
+  {
+    path: ReservationRoutes.REPORT,
+    component: ReservationReportComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: true }
+  },
+  {
+    path: ImporterRoutes.IMPORT,
+    component: ImportingComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: true }
+  },
+  {
+    path: ResortRoutes.RESORT_LIST,
+    component: ResortListComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: true }
+  },
+  {
+    path: ResortRoutes.RESORT_CREATE,
+    component: ResortCreateComponent,
+    canActivate: [AuthGuard],
+    data: { isAdminAllowed: true }
+  },
+  { path: '**', redirectTo: RegionRoutes.REGIONS, pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -96,7 +188,8 @@ const routes: Routes = [
     ResortCreateModule,
     RouterModule.forRoot(routes),
     CreateChargingPointModule,
+    ChargingPointListModule
   ],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}
