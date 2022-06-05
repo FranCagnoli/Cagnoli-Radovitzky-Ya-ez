@@ -29,7 +29,7 @@ jobs:
       run: npm i --force
 
     - name: Install Angular CLI
-      run: npm install -g @angular/cli@10.2.5 
+      run: npm install -g @angular/cli@10.2.4 
 
     - name: Build
       working-directory: "MinTurFrontend/"
