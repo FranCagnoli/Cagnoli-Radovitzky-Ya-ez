@@ -226,4 +226,4 @@ __pycache__/
 Thumbs.db
 
 Aplicacion/
-MinTurFrontend/package-lock.json
+Ministerio de Turismo/MinTur.WebApi/appsettings.json

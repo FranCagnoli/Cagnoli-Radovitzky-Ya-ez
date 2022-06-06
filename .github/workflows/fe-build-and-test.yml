@@ -1,0 +1,36 @@
+name: fe build and test
+
+on:
+  push:
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+    - 'MinTurFrontend/**'
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+
+    steps:
+    - name: Configure long paths
+      run: |
+        git init
+        git config --system core.longpaths true
+
+    - uses: actions/checkout@v3
+
+    - name: Setup node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16.x'
+      
+    - name: Install dependencies
+      working-directory: "MinTurFrontend/"
+      run: npm i --force
+
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli@10.2.4 
+
+    - name: Build
+      working-directory: "MinTurFrontend/"
+      run: npm run build --prod
