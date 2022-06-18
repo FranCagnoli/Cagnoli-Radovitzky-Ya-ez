@@ -73,8 +73,6 @@ Links a grabaciones
 [retrospectiva](https://youtu.be/2xH2zSNAtPY) <br>
 [review](https://youtu.be/2xH2zSNAtPY)
 
-## Links Tercer informe
-Links a grabaciones
 <br>
 [retrospectiva](https://youtu.be/8jRB-pX_oYg) <br>
-[review](https://youtu.be/2xH2zSNAtPY](https://youtu.be/idre0ZTmAfo)
+[review](https://youtu.be/idre0ZTmAfo)
