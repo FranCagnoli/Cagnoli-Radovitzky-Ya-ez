@@ -70,9 +70,17 @@ Decidimos, en tener solamente una  stand-up meeting por semana, debido a que es 
 
 Links a grabaciones
 <br>
-[retrospectiva](https://youtu.be/2xH2zSNAtPY) <br>
-[review](https://youtu.be/2xH2zSNAtPY)
-
+### Entrega 2
+[retrospectiva-2](https://youtu.be/2xH2zSNAtPY) 
 <br>
-[retrospectiva](https://youtu.be/8jRB-pX_oYg) <br>
-[review](https://youtu.be/idre0ZTmAfo)
+[review-2](https://youtu.be/2xH2zSNAtPY)
+<br>
+
+### Entrega 3
+
+[retrospectiva-3](https://youtu.be/2xH2zSNAtPY)
+<br>
+[review-3](https://youtu.be/idre0ZTmAfo)
+<br>
+
+
